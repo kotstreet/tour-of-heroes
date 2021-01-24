@@ -28,3 +28,15 @@ nav a {
 .example-spacer {
   flex: 1 1 auto;
 }
+
+.reg-link {
+  border-color: #e9f0e9;
+  margin-right: 30px;
+  color: #e9f0e9;
+}
+
+.reg-link:hover {
+  border-color: white;
+  transform: scale(1.1);
+  color: white !important ;
+}
