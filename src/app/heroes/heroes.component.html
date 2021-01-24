@@ -1,0 +1,39 @@
+<div class="d-flex justify-content-center">
+  <div>
+    <div class="header">
+      <div class="row align-content-center">
+        <h2>My Heroes</h2>
+
+        <div class="add-hero-div row">
+          <form>
+            <mat-form-field>
+              <mat-label>Hero name</mat-label>
+              <input matInput placeholder="Ex. Pizza-Man" #heroName />
+            </mat-form-field>
+            <button mat-mini-fab
+                    (click)="add(heroName.value); heroName.value=''"
+                    class="add-her-btn">
+              <mat-icon>add</mat-icon>
+            </button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+    <div>
+      <ul class="heroes">
+        <li *ngFor="let hero of heroes">
+          <a routerLink="/detail/{{hero.id}}">
+            <span class="badge">{{hero.id}}</span> {{hero.name}}
+          </a>
+          <button class="delete" title="delete hero"
+                  (click)="delete(hero)">
+            x
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>

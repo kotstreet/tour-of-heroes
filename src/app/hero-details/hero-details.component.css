@@ -1,0 +1,23 @@
+.save-btn {
+  margin-left: 5px;
+  background-color: #2bff39;
+  color: #ddeddf;
+}
+
+.back-btn {
+  margin-right: 5px;
+  background-color: #1929ff;
+  color: #e1e2f0;
+}
+
+.back-btn:hover {
+  background-color: #000fdb;
+  cursor: pointer;
+  color: white;
+}
+
+.save-btn:hover {
+  background-color: #00f021;
+  cursor: pointer;
+  color: white;
+}

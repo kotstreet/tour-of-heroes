@@ -1,0 +1,29 @@
+
+
+<div class="d-flex justify-content-center">
+
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Messages
+      </mat-panel-title>
+      <mat-panel-description>
+        <button *ngIf="messageService.messages.length && panelOpenState"
+                class="clear"
+                mat-raised-button
+                (click)="messageService.clear();">
+          clear
+        </button>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div *ngIf="messageService.messages.length">
+      <hr/>
+      <div *ngFor="let message of messageService.messages">
+        {{ message }}
+      </div>
+    </div>
+    <p *ngIf="!messageService.messages.length">There is no one message from server yet!</p>
+  </mat-expansion-panel>
+
+</div>

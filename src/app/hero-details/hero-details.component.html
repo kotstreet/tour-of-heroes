@@ -1,0 +1,27 @@
+
+<div class="d-flex justify-content-center">
+  <div *ngIf="hero">
+    <h2 class="text-center">{{hero.name | uppercase}} details</h2>
+    <div><span>{{hero.name}} id: </span><i><strong>{{hero.id}}</strong></i></div>
+
+    <div>
+      <mat-form-field class="mt-md-2">
+        <mat-label>Hero name</mat-label>
+        <input [(ngModel)]="hero.name"
+               placeholder="Ex. Pizza-Man"
+               matInput>
+      </mat-form-field>
+    </div>
+
+    <button mat-raised-button
+            class="back-btn"
+            (click)="save()">Save</button>
+    <button mat-raised-button
+            class="save-btn"
+            (click)="goBack()">Go back</button>
+  </div>
+
+  <div *ngIf="!hero">
+    <h1>The hero doesn't exist!!!</h1>
+  </div>
+</div>

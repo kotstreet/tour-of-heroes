@@ -7,7 +7,9 @@
   },
   "files": [
     "src/main.ts",
-    "src/polyfills.ts"
+    "src/polyfills.ts",
+    "src/app/in-memory-data.service.ts",
+
   ],
   "include": [
     "src/**/*.d.ts"
