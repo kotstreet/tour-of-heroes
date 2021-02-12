@@ -16,6 +16,22 @@
           <a class="nav-link" routerLink="/heroes">Heroes</a>
         </li>
       </ul>
+
+      <ul class="navbar-nav mr-sm-3">
+         <li class="nav-item"
+            [ngClass]="{'active': getPathname() === '/login'}">
+            <a  class="nav-link" routerLink="/login">Log in</a>
+         </li>
+         <li class="nav-item"
+            [ngClass]="{'active': getPathname() === '/register'}">
+            <a  class="nav-link" routerLink="/register">Register</a>
+         </li>
+         <li class="nav-item"
+            [ngClass]="{'active': getPathname() === '/logout'}">
+            <a  class="nav-link" routerLink="/logout">Log out</a>
+         </li>
+      </ul>
+
     </div>
   </nav>
 </header>
@@ -24,7 +40,10 @@
 
   <router-outlet></router-outlet>
   <br />
-  <hr />
-  <app-message></app-message>
+
+  <div *ngIf="getPathname() != '/login' && getPathname() != '/register'">
+    <hr />
+    <app-message></app-message>
+  </div>
 
 </div>

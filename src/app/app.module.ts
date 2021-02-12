@@ -18,6 +18,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,9 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MessageComponent,
     DashboardComponent,
     HeroSearchComponent,
+    LoginComponent,
+    LogoutComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

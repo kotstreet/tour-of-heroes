@@ -1,0 +1,37 @@
+<h2 class="text-center pt-sm-3 mt-sm-5">Registration</h2>
+
+<div class="add-hero-div margin-auto mt-sm-4">
+  <form class="text-center">
+
+    <mat-form-field class="register-field" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="hero@gmail.com" #email />
+    </mat-form-field>
+
+    <br />
+    <mat-form-field class="register-field" appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput #password placeholder="Enter your password"
+             [type]="passwordHide ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="passwordHide = !passwordHide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="passwordHide">
+        <mat-icon>{{passwordHide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <br />
+    <mat-form-field class="register-field" appearance="fill">
+      <mat-label>Confirmation</mat-label>
+      <input matInput #confirm placeholder="Enter password again"
+             [type]="confirmHide ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="confirmHide = !confirmHide" [attr.aria-label]="'Hide confirmation password'" [attr.aria-pressed]="confirmHide">
+        <mat-icon>{{confirmHide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <br />
+    <button mat-button class="register-btn mt-sm-3 pl-sm-4 pr-sm-4 pt-sm-1"
+            (click)="register(email.value, password.value, confirm.value);">
+      Register
+    </button>
+  </form>
+</div>

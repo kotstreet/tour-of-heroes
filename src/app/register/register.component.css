@@ -1,0 +1,17 @@
+.margin-auto {
+  margin: auto;
+}
+
+.register-field {
+  width: 200px;
+}
+
+.register-btn {
+  background-color: #60f50a;
+  color: white;
+}
+
+.register-btn:hover {
+  background-color: #59e00b;
+  color: white;
+}
