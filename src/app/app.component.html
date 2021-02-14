@@ -8,10 +8,12 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item"
+             *ngIf="isLogedIn()"
             [ngClass]="{'active': getPathname() === '/dashboard'}">
           <a class="nav-link" routerLink="/dashboard">Dashboard </a>
         </li>
         <li class="nav-item"
+             *ngIf="isLogedIn()"
             [ngClass]="{'active': getPathname() === '/heroes'}">
           <a class="nav-link" routerLink="/heroes">Heroes</a>
         </li>
@@ -19,16 +21,18 @@
 
       <ul class="navbar-nav mr-sm-3">
          <li class="nav-item"
+             *ngIf="isLogedOut()"
             [ngClass]="{'active': getPathname() === '/login'}">
             <a  class="nav-link" routerLink="/login">Log in</a>
          </li>
          <li class="nav-item"
+             *ngIf="isLogedOut()"
             [ngClass]="{'active': getPathname() === '/register'}">
             <a  class="nav-link" routerLink="/register">Register</a>
          </li>
-         <li class="nav-item"
-            [ngClass]="{'active': getPathname() === '/logout'}">
-            <a  class="nav-link" routerLink="/logout">Log out</a>
+         <li class="nav-item logout-link"
+             *ngIf="isLogedIn()">
+            <a class="nav-link" (click)="logout()">Log out</a>
          </li>
       </ul>
 

@@ -13,13 +13,13 @@ import { MessageComponent } from './message/message.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { LoginComponent } from './login/login.component';
-import { LogoutComponent } from './logout/logout.component';
 import { RegisterComponent } from './register/register.component';
 
 @NgModule({
@@ -31,7 +31,6 @@ import { RegisterComponent } from './register/register.component';
     DashboardComponent,
     HeroSearchComponent,
     LoginComponent,
-    LogoutComponent,
     RegisterComponent,
   ],
   imports: [
@@ -53,6 +52,7 @@ import { RegisterComponent } from './register/register.component';
     MatButtonModule,
     MatIconModule,
     MatExpansionModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

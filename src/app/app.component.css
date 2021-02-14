@@ -40,3 +40,8 @@ nav a {
   transform: scale(1.1);
   color: white !important ;
 }
+
+.logout-link:hover {
+    cursor:pointer;
+}
+

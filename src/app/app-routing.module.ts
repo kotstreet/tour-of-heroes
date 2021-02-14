@@ -5,7 +5,6 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroDetailsComponent } from './hero-details/hero-details.component';
 import { LoginComponent } from './login/login.component';
-import { LogoutComponent } from './logout/logout.component';
 import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
@@ -15,7 +14,6 @@ const routes: Routes = [
   { path: 'detail/:id', component: HeroDetailsComponent },
 
   { path: 'login', component: LoginComponent },
-  { path: 'logout', component: LogoutComponent },
   { path: 'register', component: RegisterComponent },
 ];
 
