@@ -2,13 +2,41 @@
 <div class="d-flex justify-content-center">
   <div *ngIf="hero">
     <h2 class="text-center">{{hero.name | uppercase}} details</h2>
-    <div><span>{{hero.name}} id: </span><i><strong>{{hero.id}}</strong></i></div>
+    <div><span>{{hero.firstName}} id: </span><i><strong>{{hero.id}}</strong></i></div>
 
     <div>
       <mat-form-field class="mt-md-2">
         <mat-label>Hero name</mat-label>
-        <input [(ngModel)]="hero.name"
+        <input [(ngModel)]="hero.firstName"
                placeholder="Ex. Pizza-Man"
+               matInput>
+      </mat-form-field>
+
+      <br />
+      <mat-form-field class="">
+        <mat-label>Hero last name</mat-label>
+        <input [(ngModel)]="hero.secondName"
+               placeholder="Ex. Tomatos"
+               matInput>
+      </mat-form-field>
+
+      <br />
+      <mat-form-field class="">
+        <mat-label>Hero age</mat-label>
+        <input type="number"
+               min="0"
+               [(ngModel)]="hero.age"
+               placeholder="22"
+               matInput>
+      </mat-form-field>
+
+      <br />
+      <mat-form-field class="">
+        <mat-label>Hero count of  messages</mat-label>
+        <input type="number"
+               min="0"
+               [(ngModel)]="hero.countOfMessages"
+               placeholder="12"
                matInput>
       </mat-form-field>
     </div>

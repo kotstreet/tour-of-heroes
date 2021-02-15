@@ -1,6 +1,6 @@
-<h2 class="text-center pt-sm-3 mt-sm-5">Registration</h2>
+<h2 class="text-center pt-sm-3 mt-sm-5 register-lbl ">Registration</h2>
 
-<div class="add-hero-div margin-auto mt-sm-4">
+<div class="add-hero-div margin-auto mt-5">
   <form class="text-center">
 
     <mat-form-field class="register-field" appearance="fill">
@@ -8,33 +8,46 @@
       <input matInput
              placeholder="hero@gmail.com"
              [formControl]="email" required />
-      <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+      <mat-error *ngIf="email.invalid"
+                 class="vilidate-fild-error">{{getEmailErrorMessage()}}</mat-error>
     </mat-form-field>
 
     <br />
-    <mat-form-field class="register-field" appearance="fill">
+    <mat-form-field class="register-field  mt-2"
+                    appearance="fill">
       <mat-label>Password</mat-label>
       <input matInput
              [formControl]="password" required
              placeholder="Enter your password"
              [type]="passwordHide ? 'password' : 'text'">
-      <button mat-icon-button matSuffix (click)="passwordHide = !passwordHide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="passwordHide">
+      <button *ngIf="password.value.length"
+              mat-icon-button matSuffix
+              (click)="passwordHide = !passwordHide"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="passwordHide">
         <mat-icon>{{passwordHide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
-      <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
+      <mat-error *ngIf="password.invalid"
+                 class="vilidate-fild-error">{{getPasswordErrorMessage()}}</mat-error>
     </mat-form-field>
 
     <br />
-    <mat-form-field class="register-field" appearance="fill">
+    <mat-form-field class="register-field  mt-2"
+                    appearance="fill">
       <mat-label>Confirmation</mat-label>
       <input matInput
              [formControl]="confirmation" required
              placeholder="Enter password again"
              [type]="confirmHide ? 'password' : 'text'">
-      <button mat-icon-button matSuffix (click)="confirmHide = !confirmHide" [attr.aria-label]="'Hide confirmation password'" [attr.aria-pressed]="confirmHide">
+      <button *ngIf="confirmation.value.length"
+              mat-icon-button matSuffix
+              (click)="confirmHide = !confirmHide"
+              [attr.aria-label]="'Hide confirmation password'"
+              [attr.aria-pressed]="confirmHide">
         <mat-icon>{{confirmHide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
-      <mat-error *ngIf="confirmation.invalid">{{getConfirmErrorMessage()}}</mat-error>
+      <mat-error *ngIf="confirmation.invalid"
+                 class="vilidate-fild-error">{{getConfirmErrorMessage()}}</mat-error>
     </mat-form-field>
 
     <br />

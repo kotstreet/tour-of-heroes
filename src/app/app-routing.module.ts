@@ -8,17 +8,18 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroDetailsComponent } from './hero-details/hero-details.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HeroFilterSearchComponent } from './hero-filter-search/hero-filter-search.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'heroes', component: HeroesComponent, canActivate: [AuthGuard], canActivateChild: [AuthGuard] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard], canActivateChild: [AuthGuard] },
   { path: 'detail/:id', component: HeroDetailsComponent, canActivate: [AuthGuard], canActivateChild: [AuthGuard] },
+  { path: 'filter', component: HeroFilterSearchComponent, canActivate: [AuthGuard], canActivateChild: [AuthGuard] },
 
   { path: 'login', component: LoginComponent, canActivate: [NotAuthGuard], canActivateChild: [NotAuthGuard] },
   { path: 'register', component: RegisterComponent, canActivate: [NotAuthGuard], canActivateChild: [NotAuthGuard] },
-  { path: '**', component: PageNotFoundComponent }
+  { path: '**', redirectTo: '/dashboard', pathMatch: 'full' }
 ];
 
 @NgModule({

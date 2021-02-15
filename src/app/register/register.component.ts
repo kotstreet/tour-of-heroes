@@ -47,7 +47,10 @@ export class RegisterComponent implements OnInit {
   }
 
   getPasswordErrorMessage() {
-    console.log(this.password.hasError('minlength'));
+    if (this.password.hasError('required')) {
+      return 'You must enter a value';
+    }
+
     return this.password.hasError('minlength' ) ? 'Enter at least 6 characters' : '';
   }
 
@@ -72,5 +75,4 @@ export class RegisterComponent implements OnInit {
       panelClass: "error-snackcbar",
     });
   }
-
 }

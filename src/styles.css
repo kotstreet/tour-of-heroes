@@ -14,3 +14,7 @@ body {
   background-color: #fc392b;
   color: white;
 }
+
+.vilidate-fild-error {
+    font-size: 14px;
+}

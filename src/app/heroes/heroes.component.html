@@ -4,14 +4,27 @@
       <div class="row align-content-center">
         <h2>My Heroes</h2>
 
-        <div class="add-hero-div row">
+        <div class="add-hero-div row border rounded m-2 p-2">
           <form>
             <mat-form-field>
               <mat-label>Hero name</mat-label>
               <input matInput placeholder="Ex. Pizza-Man" #heroName />
             </mat-form-field>
+
+            <br />
+            <mat-form-field>
+              <mat-label>Hero last name</mat-label>
+              <input matInput placeholder="Ex. Tabasco" #heroSurName />
+            </mat-form-field>
+
+            <br />
+            <mat-form-field>
+              <mat-label>Hero last name</mat-label>
+              <input matInput type="number" min="0" value="22" #heroAge />
+            </mat-form-field>
+
             <button mat-mini-fab
-                    (click)="add(heroName.value); heroName.value=''"
+                    (click)="add(heroName.value, heroSurName.value, heroAge.value); heroName.value=''; heroAge.value=22; heroSurName.value=''"
                     class="add-her-btn">
               <mat-icon>add</mat-icon>
             </button>
@@ -25,7 +38,7 @@
       <ul class="heroes">
         <li *ngFor="let hero of heroes">
           <a routerLink="/detail/{{hero.id}}">
-            <span class="badge">{{hero.id}}</span> {{hero.name}}
+            <span class="badge">{{hero.id}}</span> {{hero.firstName}} {{hero.secondName}} ({{hero.age}})
           </a>
           <button class="delete" title="delete hero"
                   (click)="delete(hero)">

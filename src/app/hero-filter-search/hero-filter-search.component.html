@@ -1,0 +1,42 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <mat-form-field class="search-input ml-4">
+      <mat-label>Hero name</mat-label>
+      <input matInput
+             #name
+             placeholder="Start to enter f.e. 'Spider-Man'">
+    </mat-form-field>
+
+    <mat-form-field class="search-input ml-4 range-field">
+      <mat-label>Start (age)</mat-label>
+      <input matInput
+             #startAge
+             type="number"
+             min="0"
+             value="18">
+    </mat-form-field>
+    <span class="mt-3"> - </span>
+    <mat-form-field class="search-input range-field">
+      <mat-label>Finish (age)</mat-label>
+      <input matInput
+             #finishAge
+             type="number"
+             value="100">
+    </mat-form-field>
+
+    <mat-form-field class="ml-4">
+      <select matNativeControl
+              #messageLevel>
+        <option value="0">none</option>
+        <option value="1">min</option>
+        <option value="2">middle</option>
+        <option value="3">max</option>
+      </select>
+    </mat-form-field>
+
+    <button class="ml-4 btn btn-info my-btn mt-1"
+            (click)="search(name.value, startAge.value, finishAge.value, messageLevel.value)"
+            >Search</button>
+  </div>
+</div>
+

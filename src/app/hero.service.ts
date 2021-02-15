@@ -49,9 +49,9 @@ export class HeroService {
     );
   }
 
-  addHero(hero: Hero): Observable<Hero> {
+  addHero(hero: Hero): Observable<Hero> {    
     return this.httpClient.post<Hero>(this.heroesUrl, hero, this.httpOptions).pipe(
-      tap((newHero: Hero) => this.log(`added hero name="${hero.name}" id=${newHero.id}`)),
+      tap((newHero: Hero) => this.log(`added hero name="${hero.firstName + ' ' + hero.secondName}" age=${hero.age} id=${newHero.id} countOfMessages=${hero.countOfMessages}`)),
       catchError(this.handleError<Hero>('addHero'))
     );
   }
@@ -71,7 +71,7 @@ export class HeroService {
       // if not search term, return empty hero array.
       return of([]);
     }
-    return this.httpClient.get<Hero[]>(`${this.heroesUrl}/?name=${term}`).pipe(
+    return this.httpClient.get<Hero[]>(`${this.heroesUrl}/?firstName=${term}`).pipe(
       tap(x => x.length ?
         this.log(`found heroes matching "${term}"`) :
         this.log(`no heroes matching "${term}"`)),

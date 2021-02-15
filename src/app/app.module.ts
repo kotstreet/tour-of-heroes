@@ -25,7 +25,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HeroFilterSearchComponent } from './hero-filter-search/hero-filter-search.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     HeroSearchComponent,
     LoginComponent,
     RegisterComponent,
-    PageNotFoundComponent,
+    HeroFilterSearchComponent,
   ],
   imports: [
     BrowserModule,
