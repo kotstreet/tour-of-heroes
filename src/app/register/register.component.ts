@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -9,6 +10,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  email = new FormControl('', [Validators.required, Validators.email]);
+  password = new FormControl('', [Validators.required, Validators.minLength(6)]);
+  confirmation = new FormControl('', [Validators.required]);
+
   passwordHide = true;
   confirmHide = true;
 
@@ -19,32 +24,39 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  register(email: string, password: string, confirmation: string): void {
+  register(): void {
     this._snackBar.dismiss()
-    console.log(`email = ${email}, password = ${password}, confirm = ${confirmation}`);
+    console.log(`email = ${this.email.value}, password = ${this.password.value}, confirm = ${this.confirmation.value}`);
 
-    if (!this.isValid(email, password, confirmation))
+    if (!this.email.valid || !this.password.valid || !this.confirmation.valid || !this.isValid())
       return;
 
-    if (this.authService.register(email, password)) {
+    if (this.authService.register(this.email.value, this.password.value)) {
       this.router.navigate(['']);
     } else {
       this.openSnackBar('creating was failed');
     }
   }
 
-  isValid(email: string, password: string, confirmation: string): boolean {
-    if (email.indexOf('@') < 0) {
-      this.openSnackBar('email is encorrect...');
-      return false;
+  getEmailErrorMessage() {
+    if (this.email.hasError('required')) {
+      return 'You must enter a value';
     }
 
-    if (password.length < 6) {
-      this.openSnackBar('password should contain at least 6 characters');
-      return false;
-    }
+    return this.email.hasError('email') ? 'Not a valid email' : '';
+  }
 
-    if (password != confirmation) {
+  getPasswordErrorMessage() {
+    console.log(this.password.hasError('minlength'));
+    return this.password.hasError('minlength' ) ? 'Enter at least 6 characters' : '';
+  }
+
+  getConfirmErrorMessage() {
+    return this.confirmation.hasError('required') ? 'You must enter a value' : '';
+  }
+
+  isValid(): boolean {
+    if (this.password != this.confirmation) {
       this.openSnackBar('password and confirmation are not equals');
       return false;
     }

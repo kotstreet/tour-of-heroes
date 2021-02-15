@@ -5,32 +5,41 @@
 
     <mat-form-field class="register-field" appearance="fill">
       <mat-label>Email</mat-label>
-      <input matInput placeholder="hero@gmail.com" #email />
+      <input matInput
+             placeholder="hero@gmail.com"
+             [formControl]="email" required />
+      <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
     </mat-form-field>
 
     <br />
     <mat-form-field class="register-field" appearance="fill">
       <mat-label>Password</mat-label>
-      <input matInput #password placeholder="Enter your password"
+      <input matInput
+             [formControl]="password" required
+             placeholder="Enter your password"
              [type]="passwordHide ? 'password' : 'text'">
       <button mat-icon-button matSuffix (click)="passwordHide = !passwordHide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="passwordHide">
         <mat-icon>{{passwordHide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
+      <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
     </mat-form-field>
 
     <br />
     <mat-form-field class="register-field" appearance="fill">
       <mat-label>Confirmation</mat-label>
-      <input matInput #confirm placeholder="Enter password again"
+      <input matInput
+             [formControl]="confirmation" required
+             placeholder="Enter password again"
              [type]="confirmHide ? 'password' : 'text'">
       <button mat-icon-button matSuffix (click)="confirmHide = !confirmHide" [attr.aria-label]="'Hide confirmation password'" [attr.aria-pressed]="confirmHide">
         <mat-icon>{{confirmHide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
+      <mat-error *ngIf="confirmation.invalid">{{getConfirmErrorMessage()}}</mat-error>
     </mat-form-field>
 
     <br />
     <button mat-button class="register-btn mt-sm-3 pl-sm-4 pr-sm-4 pt-sm-1"
-            (click)="register(email.value, password.value, confirm.value);">
+            (click)="register();">
       Register
     </button>
   </form>
