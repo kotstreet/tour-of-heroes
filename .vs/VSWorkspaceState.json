@@ -2,8 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\app"
+    "\\src\\app",
+    "\\src\\app\\dashboard",
+    "\\src\\app\\hero-details",
+    "\\src\\app\\hero-filter-search",
+    "\\src\\app\\hero-search",
+    "\\src\\app\\heroes"
   ],
-  "SelectedNode": "\\src\\app\\app-routing.module.ts",
+  "SelectedNode": "\\src\\app\\heroes\\heroes.component.html",
   "PreviewInSolutionExplorer": false
 }

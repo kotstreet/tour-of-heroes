@@ -17,23 +17,29 @@ export class HeroFilterSearchComponent implements OnInit {
     private heroService: HeroService) { }
 
   ngOnInit(): void {
+    this.heroService.getHeroes()
+    .subscribe(heroes => this.heroes = heroes);
   }
 
-  search(name: string, startAge: number, finishAge: number, messageLevel: number): void {
+  search(name: string, startAge: string, finishAge: string, messageLevel: string): void {
     console.log(`name=${name}, age:${startAge}-${finishAge}, messagelevel=${messageLevel}`);
     let lowerName = name.toLowerCase();
-    let minMessageCountValue = minMessageCount[messageLevel];
-    let maxMessageCountValue = maxMessageCount[messageLevel];
+    let start: number = +startAge;
+    let finish: number = +finishAge;
+    let index: number = +messageLevel;
+    let minMessageCountValue = minMessageCount[index];
+    let maxMessageCountValue = maxMessageCount[index];
 
     this.heroService.getHeroes()
       .subscribe(heroes => {
-        this.heroes = heroes.filter(hero => hero.age > startAge
-          && hero.age < finishAge
+        this.heroes = heroes.filter(hero =>
+          hero.age > start
+          && hero.age < finish
           && (hero.firstName.toLowerCase().includes(lowerName) || hero.secondName.toLowerCase().includes(lowerName))
-          && (hero.countOfMessages >= minMessageCountValue && hero.countOfMessages <= maxMessageCountValue));
+          && (hero.countOfMessages >= minMessageCountValue && hero.countOfMessages <= maxMessageCountValue)
+        );
         console.log(heroes);
         console.log(this.heroes);
       });
-
   }
 }

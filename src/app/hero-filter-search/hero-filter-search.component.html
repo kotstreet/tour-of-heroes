@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<div class="container  mt-4 ">
   <div class="row justify-content-center">
     <mat-form-field class="search-input ml-4">
       <mat-label>Hero name</mat-label>
@@ -7,7 +7,7 @@
              placeholder="Start to enter f.e. 'Spider-Man'">
     </mat-form-field>
 
-    <mat-form-field class="search-input ml-4 range-field">
+    <mat-form-field class="search-input ml-4 range-field pr-2">
       <mat-label>Start (age)</mat-label>
       <input matInput
              #startAge
@@ -16,7 +16,7 @@
              value="18">
     </mat-form-field>
     <span class="mt-3"> - </span>
-    <mat-form-field class="search-input range-field">
+    <mat-form-field class="search-input range-field pl-2">
       <mat-label>Finish (age)</mat-label>
       <input matInput
              #finishAge
@@ -35,8 +35,20 @@
     </mat-form-field>
 
     <button class="ml-4 btn btn-info my-btn mt-1"
-            (click)="search(name.value, startAge.value, finishAge.value, messageLevel.value)"
-            >Search</button>
+            (click)="search(name.value, startAge.value, finishAge.value, messageLevel.value)">
+      Search
+    </button>
   </div>
 </div>
 
+<div class="d-flex justify-content-center">
+  <div *ngIf="heroes.length" class="mt-5">
+    <ul class="heroes">
+      <li *ngFor="let hero of heroes">
+        <a routerLink="/detail/{{hero.id}}">
+          <span class="badge">{{heroes.indexOf(hero) + 1}}</span> {{hero.firstName}} {{hero.secondName}} (age: {{hero.age}}), {{hero.countOfMessages}} messages
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

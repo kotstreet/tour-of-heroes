@@ -27,8 +27,9 @@ export class HeroesComponent implements OnInit {
       .subscribe(heroes => this.heroes = heroes);
   }
 
-  add(name: string, lastName:string, heroAge: number): void {
+  add(name: string, lastName:string, incomeHeroAge: string): void {
     name = name.trim();
+    let heroAge: number = +incomeHeroAge;
     console.log(`name=${name}, lastName=${lastName}, heroAge=${heroAge}`);
 
     if (!name) { return; }
